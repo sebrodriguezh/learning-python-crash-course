@@ -35,8 +35,17 @@ class Restaurant:
         Args:
             additional_customers (int): Number of additional customers served
         """
-        self.customers_served += additional_customers 
+        self.customers_served += additional_customers
 
+class IceCreamStand(Restaurant):
+    
+    def __init__(self, restaurant_name, cuisine_type):
+        super().__init__(restaurant_name, cuisine_type)
+        self.flavors = ['chocolate', 'vanilla', 'lemon']
+    
+    def display_flavors(self):
+        for flavor in self.flavors:
+            print(flavor.title())
 
 restaurant = Restaurant("Tony's Pizza", "italian")
 print(restaurant.name)
@@ -51,4 +60,6 @@ print(restaurant.customers_served)
 
 restaurant.describe_restaurant()
 restaurant.open_restaurant()
-        
+
+my_restaurant = IceCreamStand("Joe", 'Ice Cream Stand')
+my_restaurant.display_flavors()
